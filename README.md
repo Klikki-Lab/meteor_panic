@@ -10,3 +10,6 @@
 
 ## テクニック
   * インセキにミサイルを直撃させると通常よりも爆風範囲が広がります。
+
+## 音楽
+ (C)PANICPUMPKIN https://pansound.com/panicpumpkin/
