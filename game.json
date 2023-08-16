@@ -1,0 +1,491 @@
+{
+	"width": 1280,
+	"height": 720,
+	"fps": 30,
+	"main": "./script/_bootstrap.js",
+	"assets": {
+		"_bootstrap": {
+			"type": "script",
+			"path": "script/_bootstrap.js",
+			"global": true
+		},
+		"main": {
+			"type": "script",
+			"path": "script/main.js",
+			"global": true
+		},
+		"parameterObject": {
+			"type": "script",
+			"path": "script/parameterObject.js",
+			"global": true
+		},
+		"sight": {
+			"type": "image",
+			"path": "image/sight.png",
+			"width": 60,
+			"height": 60
+		},
+		"GameScene": {
+			"type": "script",
+			"path": "script/game_scene/gameScene.js",
+			"global": true
+		},
+		"Meteor": {
+			"type": "script",
+			"path": "script/game_scene/invader/meteor.js",
+			"global": true
+		},
+		"Missile": {
+			"type": "script",
+			"path": "script/game_scene/player/missile.js",
+			"global": true
+		},
+		"se_destroy": {
+			"type": "audio",
+			"path": "audio/honoobakuhatsu",
+			"systemId": "sound",
+			"duration": 1440,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"missile_base": {
+			"type": "image",
+			"path": "image/missile_base.png",
+			"width": 80,
+			"height": 80
+		},
+		"gun_turret": {
+			"type": "image",
+			"path": "image/gun_turret.png",
+			"width": 18,
+			"height": 18
+		},
+		"destroyed_missile_base": {
+			"type": "image",
+			"path": "image/destroyed_missile_base.png",
+			"width": 80,
+			"height": 80
+		},
+		"Combo": {
+			"type": "script",
+			"path": "script/game_scene/combo.js",
+			"global": true
+		},
+		"se_fire": {
+			"type": "audio",
+			"path": "audio/kazekamaitachi",
+			"systemId": "sound",
+			"duration": 1137,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"se_explosion": {
+			"type": "audio",
+			"path": "audio/chijishin",
+			"systemId": "sound",
+			"duration": 1464,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"se_reload": {
+			"type": "audio",
+			"path": "audio/sonohokapyokottohaeru",
+			"systemId": "sound",
+			"duration": 79,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"Player": {
+			"type": "script",
+			"path": "script/game_scene/player/player.js",
+			"global": true
+		},
+		"meteor": {
+			"type": "image",
+			"path": "image/meteor.png",
+			"width": 32,
+			"height": 32
+		},
+		"smoke": {
+			"type": "image",
+			"path": "image/smoke.png",
+			"width": 32,
+			"height": 32
+		},
+		"explosion": {
+			"type": "image",
+			"path": "image/explosion.png",
+			"width": 144,
+			"height": 48
+		},
+		"Explosion": {
+			"type": "script",
+			"path": "script/game_scene/effect/explosion.js",
+			"global": true
+		},
+		"heat": {
+			"type": "image",
+			"path": "image/heat.png",
+			"width": 156,
+			"height": 80
+		},
+		"combustion": {
+			"type": "image",
+			"path": "image/combustion.png",
+			"width": 32,
+			"height": 16
+		},
+		"missile": {
+			"type": "image",
+			"path": "image/missile.png",
+			"width": 16,
+			"height": 16
+		},
+		"Smoke": {
+			"type": "script",
+			"path": "script/game_scene/effect/smoke.js",
+			"global": true
+		},
+		"MissileBase": {
+			"type": "script",
+			"path": "script/game_scene/player/missileBase.js",
+			"global": true
+		},
+		"destroyed_missile_base_back": {
+			"type": "image",
+			"path": "image/destroyed_missile_base_back.png",
+			"width": 80,
+			"height": 80
+		},
+		"ground": {
+			"type": "image",
+			"path": "image/ground.png",
+			"width": 1280,
+			"height": 72
+		},
+		"ufo": {
+			"type": "image",
+			"path": "image/ufo.png",
+			"width": 48,
+			"height": 48
+		},
+		"horizon": {
+			"type": "image",
+			"path": "image/horizon.png",
+			"width": 1280,
+			"height": 128
+		},
+		"font16_1": {
+			"type": "image",
+			"path": "image/font16_1.png",
+			"width": 256,
+			"height": 96
+		},
+		"glyph_area_16": {
+			"type": "text",
+			"path": "text/glyph_area_16.json"
+		},
+		"shock_wave_invader": {
+			"type": "image",
+			"path": "image/shock_wave_invader.png",
+			"width": 100,
+			"height": 100
+		},
+		"shock_wave_player": {
+			"type": "image",
+			"path": "image/shock_wave_player.png",
+			"width": 100,
+			"height": 100
+		},
+		"Sight": {
+			"type": "script",
+			"path": "script/game_scene/player/sight.js",
+			"global": true
+		},
+		"UFO": {
+			"type": "script",
+			"path": "script/game_scene/invader/ufo.js",
+			"global": true
+		},
+		"se_ufo": {
+			"type": "audio",
+			"path": "audio/norimonoufo",
+			"systemId": "sound",
+			"duration": 875,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"launchable": {
+			"type": "script",
+			"path": "script/game_scene/player/launchable.js",
+			"global": true
+		},
+		"ufo_bullet": {
+			"type": "image",
+			"path": "image/ufo_bullet.png",
+			"width": 16,
+			"height": 16
+		},
+		"destroydMissileBase": {
+			"type": "script",
+			"path": "script/game_scene/player/destroydMissileBase.js",
+			"global": true
+		},
+		"InvaderShockWave": {
+			"type": "script",
+			"path": "script/game_scene/effect/InvaderShockWave.js",
+			"global": true
+		},
+		"shockWave": {
+			"type": "script",
+			"path": "script/game_scene/effect/shockWave.js",
+			"global": true
+		},
+		"invader": {
+			"type": "script",
+			"path": "script/game_scene/invader/invader.js",
+			"global": true
+		},
+		"ufoBullet": {
+			"type": "script",
+			"path": "script/game_scene/invader/ufoBullet.js",
+			"global": true
+		},
+		"remaining_missile": {
+			"type": "image",
+			"path": "image/remaining_missile.png",
+			"width": 54,
+			"height": 18
+		},
+		"playerShockWave": {
+			"type": "script",
+			"path": "script/game_scene/effect/playerShockWave.js",
+			"global": true
+		},
+		"titleScene": {
+			"type": "script",
+			"path": "script/title_scene/titleScene.js",
+			"global": true
+		},
+		"description": {
+			"type": "image",
+			"path": "image/description.png",
+			"width": 993,
+			"height": 221
+		},
+		"missile_base_rebuild": {
+			"type": "image",
+			"path": "image/missile_base_rebuild.png",
+			"width": 128,
+			"height": 128
+		},
+		"rebuild": {
+			"type": "script",
+			"path": "script/game_scene/player/rebuild.js",
+			"global": true
+		},
+		"fireSmoke": {
+			"type": "script",
+			"path": "script/game_scene/player/fireSmoke.js",
+			"global": true
+		},
+		"missileBaseBackground": {
+			"type": "script",
+			"path": "script/game_scene/player/missileBaseBackground.js",
+			"global": true
+		},
+		"rebuilding_missile_base": {
+			"type": "image",
+			"path": "image/rebuilding_missile_base.png",
+			"width": 171,
+			"height": 147
+		},
+		"se_strike": {
+			"type": "audio",
+			"path": "audio/sentoutekihakai",
+			"systemId": "sound",
+			"duration": 546,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"se_rebuild": {
+			"type": "audio",
+			"path": "audio/kaifukukaifuku",
+			"systemId": "sound",
+			"duration": 1237,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"bgm": {
+			"type": "audio",
+			"path": "audio/BGM239-221031-jikochuheroes-wav",
+			"systemId": "music",
+			"duration": 37675,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"entity": {
+			"type": "script",
+			"path": "script/game_scene/common/entity.js",
+			"global": true
+		},
+		"missileLauncher": {
+			"type": "script",
+			"path": "script/game_scene/player/missileLauncher.js",
+			"global": true
+		},
+		"fontSize": {
+			"type": "script",
+			"path": "script/common/fontSize.js",
+			"global": true
+		},
+		"collider": {
+			"type": "script",
+			"path": "script/game_scene/common/collider.js",
+			"global": true
+		},
+		"star": {
+			"type": "script",
+			"path": "script/common/star.js",
+			"global": true
+		},
+		"notificationLabel": {
+			"type": "script",
+			"path": "script/game_scene/notificationLabel.js",
+			"global": true
+		},
+		"finishLabel": {
+			"type": "script",
+			"path": "script/game_scene/finishLabel.js",
+			"global": true
+		},
+		"title": {
+			"type": "image",
+			"path": "image/title.png",
+			"width": 532,
+			"height": 99
+		},
+		"se_powerup": {
+			"type": "audio",
+			"path": "audio/statushenkapowerup",
+			"systemId": "sound",
+			"duration": 570,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"destroyed_ufo": {
+			"type": "image",
+			"path": "image/destroyed_ufo.png",
+			"width": 48,
+			"height": 48
+		},
+		"destroyedUfo": {
+			"type": "script",
+			"path": "script/game_scene/invader/destroyedUfo.js",
+			"global": true
+		},
+		"switchButton": {
+			"type": "script",
+			"path": "script/title_scene/switchButton.js",
+			"global": true
+		},
+		"timer": {
+			"type": "script",
+			"path": "script/title_scene/timer.js",
+			"global": true
+		},
+		"se_start": {
+			"type": "audio",
+			"path": "audio/ME046-151031-get05",
+			"systemId": "sound",
+			"duration": 1652,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"se_finish": {
+			"type": "audio",
+			"path": "audio/ME007-090401-clear03",
+			"systemId": "sound",
+			"duration": 2438,
+			"hint": {
+				"extensions": [
+					".aac",
+					".ogg"
+				]
+			}
+		},
+		"scorer": {
+			"type": "script",
+			"path": "script/game_scene/hud/scorer.js",
+			"global": true
+		},
+		"ticker": {
+			"type": "script",
+			"path": "script/game_scene/hud/ticker.js",
+			"global": true
+		},
+		"wave": {
+			"type": "script",
+			"path": "script/game_scene/hud/wave.js",
+			"global": true
+		},
+		"blinking": {
+			"type": "script",
+			"path": "script/game_scene/blinking.js",
+			"global": true
+		}
+	},
+	"moduleMainScripts": {},
+	"environment": {
+		"sandbox-runtime": "3",
+		"nicolive": {
+			"supportedModes": [
+				"ranking"
+			],
+			"preferredSessionParameters": {
+				"totalTimeLimit": 116
+			}
+		}
+	},
+	"globalScripts": []
+}

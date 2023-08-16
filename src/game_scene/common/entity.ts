@@ -1,0 +1,1 @@
+export type Pos = g.E | g.CommonOffset;
