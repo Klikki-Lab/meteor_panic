@@ -14,7 +14,7 @@ import { Wave } from "./hud/wave";
 import { NotificationLabel } from "./notificationLabel";
 import { MissileBase } from "./player/missileBase";
 import { MissileLauncher } from "./player/missileLauncher";
-import { DestroyedMissileBase } from "./player/destroydMissileBase";
+import { DestroyedMissileBase } from "./player/destroyedMissileBase";
 import { FinishLabel as FinishLabel } from "./finishLabel";
 import { UFO } from "./invader/ufo";
 import { Invader, Props } from "./invader/invader";

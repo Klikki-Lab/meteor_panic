@@ -1,4 +1,3 @@
-import { BitmapFont } from "@akashic/akashic-engine";
 import { Star } from "../common/star";
 import { FontSize } from "../common/fontSize";
 import { SwitchButton, SwitchLabel } from "./switchButton";
@@ -114,12 +113,6 @@ export class TitleScene extends g.Scene {
                         entity.modified();
                     }
                 });
-
-                // timeLimit -= 1 / g.game.fps;
-                // if (timeLimit <= 0) {
-                //     this.onUpdate.remove(updateHandler);
-                //     this.onFinish.fire({ muteBGM: !musicSwitch.on, muteSE: !seSwitch.on });
-                // }
             };
             this.onUpdate.add(updateHandler);
             timer.start();
