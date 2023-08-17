@@ -363,7 +363,7 @@ export class GameScene extends g.Scene {
                     if (random.generate() > 0.25) {
                         return { x: random.generate() * g.game.width, y: ground.y } as g.CommonOffset;
                     }
-                    return player.pickBaseRandomly();
+                    return player.pickBaseRandomly(random);
                 }
 
                 if (random.generate() > 0.25) {
@@ -378,7 +378,7 @@ export class GameScene extends g.Scene {
                         }
                     }
                 }
-                return player.pickBaseRandomly(invader instanceof Meteor ? invader.targetBase : undefined);
+                return player.pickBaseRandomly(random, invader instanceof Meteor ? invader.targetBase : undefined);
             };
 
             const createMeteor = (start: Pos, target: Pos, waveTimes: number, crackCount: number = Meteor.MAX_CRACK_COUNT): Meteor => {

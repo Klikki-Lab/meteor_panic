@@ -246,11 +246,6 @@
 			"width": 16,
 			"height": 16
 		},
-		"destroydMissileBase": {
-			"type": "script",
-			"path": "script/game_scene/player/destroydMissileBase.js",
-			"global": true
-		},
 		"InvaderShockWave": {
 			"type": "script",
 			"path": "script/game_scene/effect/InvaderShockWave.js",
@@ -472,6 +467,11 @@
 		"blinking": {
 			"type": "script",
 			"path": "script/game_scene/blinking.js",
+			"global": true
+		},
+		"destroyedMissileBase": {
+			"type": "script",
+			"path": "script/game_scene/player/destroyedMissileBase.js",
 			"global": true
 		}
 	},

@@ -26,7 +26,6 @@ export class Player {
     private isReloading = false;
 
     constructor(private _missileBases: MissileBase[]) {
-        // super({ scene: scene });
     }
 
     fire = (point: g.CommonOffset, isUnlimited?: boolean): Pos | undefined => {
@@ -137,12 +136,12 @@ export class Player {
      * @param excludeTarget 除外する基地
      * @returns 選び出した基地
      */
-    pickBaseRandomly = (excludeTarget?: MissileBase): MissileBase => {
+    pickBaseRandomly = (random: g.RandomGenerator, excludeTarget?: MissileBase): MissileBase => {
         if (excludeTarget) {
             const excluded = this._missileBases.filter(base => base !== excludeTarget);
-            return excluded[Math.floor(g.game.random.generate() * excluded.length)];
+            return excluded[Math.floor(random.generate() * excluded.length)];
         }
-        return this._missileBases[Math.floor(g.game.random.generate() * this._missileBases.length)];
+        return this._missileBases[Math.floor(random.generate() * this._missileBases.length)];
     };
 
     isDestroyedAll = (): boolean => this.getActiveBases().length === 0;
