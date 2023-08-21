@@ -18,4 +18,7 @@
 
 ## 音楽
  (C)PANICPUMPKIN  
- https://pansound.com/panicpumpkin/
+ https://pansound.com/panicpumpkin/  
+## オープンソースライセンス
+ (C)Akashic Engine  
+ https://akashic-games.github.io/
