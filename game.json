@@ -420,11 +420,6 @@
 			"path": "script/title_scene/switchButton.js",
 			"global": true
 		},
-		"timer": {
-			"type": "script",
-			"path": "script/title_scene/timer.js",
-			"global": true
-		},
 		"se_start": {
 			"type": "audio",
 			"path": "audio/ME046-151031-get05",
@@ -472,6 +467,11 @@
 		"destroyedMissileBase": {
 			"type": "script",
 			"path": "script/game_scene/player/destroyedMissileBase.js",
+			"global": true
+		},
+		"countdownTimer": {
+			"type": "script",
+			"path": "script/title_scene/countdownTimer.js",
 			"global": true
 		}
 	},
