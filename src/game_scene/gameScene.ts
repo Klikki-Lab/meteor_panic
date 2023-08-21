@@ -149,7 +149,7 @@ export class GameScene extends g.Scene {
             player.onFinishReload.add(duration => {
                 this.setTimeout(() => {
                     if (ticker?.isTimeOver()) return;
-                    waveStart();
+                    startWave();
                 }, duration);
             });
             player.onExplodeBase.add(base => {
@@ -208,7 +208,7 @@ export class GameScene extends g.Scene {
             gameStart.onFinish.addOnce(() => {
                 this.asset.getAudioById("bgm").play();
                 ticker.start();
-                waveStart();
+                startWave();
             });
             this.append(gameStart);
 
@@ -220,7 +220,7 @@ export class GameScene extends g.Scene {
                 destroyObjectCount = 0;
             };
 
-            const waveStart = () => {
+            const startWave = () => {
                 init();
                 wave.next();
                 if (wave.times > 1) {
