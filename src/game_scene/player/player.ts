@@ -73,7 +73,7 @@ export class Player {
         return isCollide;
     }
 
-    getActiveBasesCount = () => this.getActiveBases().length;
+    getActiveBasesCount = (): number => this.getActiveBases().length;
 
     /**
      * @returns 行動可能な全ての基地を取得する。
@@ -103,14 +103,12 @@ export class Player {
         this.isReloading = false;
     };
 
-    reloadAll = () => {
+    reloadAll = (): void => {
         if (this.isReloading) return;
-        this.getActiveBases().forEach(base => {
-            base.reload(MissileLauncher.MAX_COUNT);
-        });
+        this.getActiveBases().forEach(base => base.reload(MissileLauncher.MAX_COUNT));
     };
 
-    getAvailableRemainingMissilesCount = () => {
+    getAvailableRemainingMissilesCount = (): number => {
         const initialValue = 0;
         return this.getAvailableBases()
             .map(base => base.getRemainingCount())
