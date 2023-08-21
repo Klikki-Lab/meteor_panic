@@ -109,11 +109,11 @@ export class GameScene extends g.Scene {
                 src: groundAsset,
                 y: g.game.height - groundAsset.height,
             });
-            const horizonAset = this.asset.getImageById("horizon");
+            const horizonAsset = this.asset.getImageById("horizon");
             const horizon = new g.Sprite({
                 scene: this,
-                src: horizonAset,
-                y: g.game.height - ground.height - horizonAset.height,
+                src: horizonAsset,
+                y: g.game.height - ground.height - horizonAsset.height,
             });
             this.append(horizon);
 

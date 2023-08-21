@@ -1,6 +1,6 @@
 import { FontSize } from "../common/fontSize";
 
-export class Timer extends g.Label {
+export class CountdownTimer extends g.Label {
 
     onFinish: g.Trigger<void> = new g.Trigger();
 

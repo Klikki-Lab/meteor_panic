@@ -1,7 +1,7 @@
 import { Star } from "../common/star";
 import { FontSize } from "../common/fontSize";
 import { SwitchButton, SwitchLabel } from "./switchButton";
-import { Timer } from "./timer";
+import { CountdownTimer as CountdownTimer } from "./countdownTimer";
 
 export interface AudioProps {
     readonly muteBGM: boolean;
@@ -95,7 +95,7 @@ export class TitleScene extends g.Scene {
             seSwitch.y = musicSwitch.y;
             this.append(seSwitch);
 
-            const timer = new Timer(this, bitmapFont, timeLimit);
+            const timer = new CountdownTimer(this, bitmapFont, timeLimit);
             timer.y = musicSwitch.y - musicSwitch.height;
             timer.onFinish.addOnce(() => {
                 this.onUpdate.remove(updateHandler);
