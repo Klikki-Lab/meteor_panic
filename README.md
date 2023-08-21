@@ -20,5 +20,8 @@
  (C)PANICPUMPKIN  
  https://pansound.com/panicpumpkin/  
 ## オープンソースライセンス
- (C)Akashic Engine  
- https://akashic-games.github.io/
+ Akashic Engine  
+ https://akashic-games.github.io/  
+## ライセンス
+ 本リポジトリは MIT License の元で公開されています。 詳しくは [LICENSE](/LICENSE) をご覧ください。  
+ ただし、音声ファイルは (C)PANICPUMPKIN に帰属しています。
