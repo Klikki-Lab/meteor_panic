@@ -25,3 +25,4 @@
 ## ライセンス
  本リポジトリは MIT License の元で公開されています。 詳しくは [LICENSE](/LICENSE) をご覧ください。  
  ただし、音声ファイルは (C)PANICPUMPKIN に帰属しています。
+ 詳しくは https://pansound.com/panicpumpkin/music/kiyaku.html をご覧ください。
