@@ -7,9 +7,9 @@ export class Explosion extends g.FrameSprite {
         super({
             scene: scene,
             src: asset,
-            width: 48,
+            width: asset.width / 3,
             height: asset.height,
-            srcWidth: 48,
+            srcWidth: asset.width / 3,
             srcHeight: asset.height,
             anchorX: 0.5,
             anchorY: 0.5,
