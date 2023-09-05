@@ -13,8 +13,8 @@ export function main(param: GameMainParameterObject): void {
 		playThreshold: 100,
 		clearThreshold: undefined,
 	};
-	g.game.audio.music.volume = 0.2;
-	g.game.audio.sound.volume = 0.2;
+	g.game.audio.music.volume = 0.3;
+	g.game.audio.sound.volume = 0.3;
 
 	g.game.vars.version = "0.1.3";//バージョン更新忘れずに!!
 	const isDebug = false;
