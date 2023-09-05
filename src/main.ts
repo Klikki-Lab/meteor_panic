@@ -4,10 +4,6 @@ import { TitleScene } from "./title_scene/titleScene";
 
 export function main(param: GameMainParameterObject): void {
 
-	let totalTimeLimit = 116;
-	if (param.sessionParameter.totalTimeLimit) {//20 以上 200 以下の整数
-		totalTimeLimit = param.sessionParameter.totalTimeLimit;
-	}
 	g.game.vars.gameState = {
 		score: 0,
 		playThreshold: 100,
@@ -20,6 +16,7 @@ export function main(param: GameMainParameterObject): void {
 	const isDebug = false;
 	const random = param.random ?? g.game.random;
 
+	const _totalTimeLimit = param.sessionParameter.totalTimeLimit ?? 116;
 	const titleTimeLimit = 7;
 	const gameTimeLimit = 99;
 	const titleScene = new TitleScene(titleTimeLimit);
