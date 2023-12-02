@@ -7,6 +7,7 @@ export interface SwitchLabel {
 
 export class SwitchButton extends g.E {
 
+    onClicked: g.Trigger<boolean> = new g.Trigger();
     private _on = true;
 
     constructor(scene: g.Scene, font: g.BitmapFont, switchLabel: SwitchLabel, fontSize: number = FontSize.TINY) {
@@ -40,6 +41,7 @@ export class SwitchButton extends g.E {
             label.invalidate();
             rect.cssColor = colors[this._on ? 0 : 1];
             rect.modified();
+            this.onClicked.fire(this._on);
         });
 
         this.append(rect);

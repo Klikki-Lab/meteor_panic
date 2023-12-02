@@ -3,14 +3,15 @@ import { FontSize } from "../common/fontSize";
 import { SwitchButton, SwitchLabel } from "./switchButton";
 import { CountdownTimer as CountdownTimer } from "./countdownTimer";
 
-export interface AudioProps {
+export interface TitleProps {
     readonly muteBGM: boolean;
     readonly muteSE: boolean;
+    readonly background: boolean;
 };
 
 export class TitleScene extends g.Scene {
 
-    onFinish: g.Trigger<AudioProps> = new g.Trigger();
+    onFinish: g.Trigger<TitleProps> = new g.Trigger();
 
     constructor(timeLimit: number) {
         super({
@@ -46,11 +47,21 @@ export class TitleScene extends g.Scene {
             new SwitchButton(this, bitmapFont, switchLabel);
 
 
+        const stars = new g.E({ scene: this });
         this.onLoad.add(() => {
             const bitmapFont = createBitmapFont16_1();
 
+            const bg = new g.FilledRect({
+                scene: this,
+                width: g.game.width,
+                height: g.game.height,
+                cssColor: "black",
+            });
+            this.append(bg);
+
+            this.append(stars);
             for (let i = 0; i < 32; i++)
-                this.append(new Star(this));
+                stars.append(new Star(this));
 
             const titleAsset = this.asset.getImageById("title");
             const title = new g.Sprite({
@@ -75,36 +86,52 @@ export class TitleScene extends g.Scene {
 
             const copyright = createLabel(bitmapFont, "MUSIC BY (C)PANICPUMPKIN");
             copyright.x = g.game.width / 2;
-            copyright.y = g.game.height - copyright.height * 1.5;
+            copyright.y = g.game.height - copyright.height * 2;
             this.append(copyright);
             const inspired = createLabel(bitmapFont, "THIS GAME IS INSPIRED BY MISSILE COMMAND.");
             inspired.x = g.game.width / 2;
-            inspired.y = g.game.height - inspired.height / 2;
+            inspired.y = copyright.y - copyright.height * 1.5;
             this.append(inspired);
             const version = createLabel(bitmapFont, `VERSION ${g.game.vars.version}`);
             version.moveTo(version.width / 2, version.height / 2);
             this.append(version);
 
             const musicSwitch = createSwitchButton(bitmapFont, { ON: "MUSIC ON", OFF: "MUSIC OFF" });
-            musicSwitch.x = g.game.width / 2 - musicSwitch.width / 2;
+            musicSwitch.x = g.game.width * 0.33;
             musicSwitch.y = description.y + description.height + musicSwitch.height;
             this.append(musicSwitch);
 
             const seSwitch = createSwitchButton(bitmapFont, { ON: "SE ON", OFF: "SE OFF" });
-            seSwitch.x = g.game.width / 2 + musicSwitch.width / 2;
+            seSwitch.x = g.game.width * 0.5;
             seSwitch.y = musicSwitch.y;
             this.append(seSwitch);
 
+            const bgSwitch = createSwitchButton(bitmapFont, { ON: "BACKGROUND ON", OFF: "BACKGROUND OFF" });
+            bgSwitch.x = g.game.width * 0.75;
+            bgSwitch.y = musicSwitch.y;
+            bgSwitch.onClicked.add(on => {
+                if (on) {
+                    bg.show();
+                } else {
+                    bg.hide();
+                }
+            });
+            this.append(bgSwitch);
+
             const timer = new CountdownTimer(this, bitmapFont, timeLimit);
-            timer.y = musicSwitch.y - musicSwitch.height;
+            timer.y = musicSwitch.y - musicSwitch.height * 2;
             timer.onFinish.addOnce(() => {
                 this.onUpdate.remove(updateHandler);
-                this.onFinish.fire({ muteBGM: !musicSwitch.on, muteSE: !seSwitch.on });
+                this.onFinish.fire({
+                    muteBGM: !musicSwitch.on,
+                    muteSE: !seSwitch.on,
+                    background: bgSwitch.on
+                });
             });
             this.append(timer);
 
             const updateHandler = () => {
-                this.children.forEach(entity => {
+                stars.children.forEach(entity => {
                     if (entity instanceof Star) {
                         entity.moveBy(-30 / g.game.fps, 30 / g.game.fps);
                         if (entity.x < 0 || entity.y > g.game.height) {

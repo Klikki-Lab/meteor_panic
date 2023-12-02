@@ -5,7 +5,16 @@ export abstract class ShockWave extends g.Sprite {
 
     onSpread: g.Trigger<ShockWave> = new g.Trigger();
 
-    constructor(scene: g.Scene, asset: g.ImageAsset, point: Pos, isStrike: boolean, power: number = 1, private _combo?: Combo, speed: number = 2) {
+    constructor(
+        scene: g.Scene,
+        asset: g.ImageAsset,
+        point: Pos,
+        isStrike: boolean,
+        power: number = 1,
+        existsBackground: boolean,
+        private _combo?: Combo,
+        speed: number = 2) {
+
         super({
             scene: scene,
             src: asset,
@@ -17,6 +26,7 @@ export abstract class ShockWave extends g.Sprite {
             anchorY: 0.5,
             scaleX: 0,
             scaleY: 0,
+            opacity: existsBackground ? 0.75 : 1,
             compositeOperation: "xor"
         });
 

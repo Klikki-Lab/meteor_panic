@@ -30,7 +30,7 @@ import { Blinking } from "./blinking";
 
 export class GameScene extends g.Scene {
 
-    constructor(random: g.RandomGenerator, timeLimit: number, isDebug: boolean = false) {
+    constructor(random: g.RandomGenerator, timeLimit: number, existsBackground: boolean, isDebug: boolean = false) {
         super({
             game: g.game,
             assetIds: [
@@ -100,6 +100,17 @@ export class GameScene extends g.Scene {
         const loadHandler = (): void => {
             const bitmapFont = createBitmapFont16_1();
 
+            if (existsBackground) {
+                const bg = new g.FilledRect({
+                    scene: this,
+                    width: g.game.width,
+                    height: g.game.height,
+                    cssColor: "black",
+                    opacity: 1,
+                });
+                this.append(bg);
+            }
+
             for (let i = 0; i < 64; i++)
                 this.append(new Star(this));
 
@@ -158,7 +169,7 @@ export class GameScene extends g.Scene {
                     this.setTimeout(() => {
                         const sx = base.x + (g.game.random.generate() * 2 - 1) * base.width / 2;
                         const sy = base.y - g.game.random.generate() * base.height / 2;
-                        const shockWave = new InvaderShockWave(this, { x: sx, y: sy } as g.CommonOffset, undefined, 0.5);
+                        const shockWave = new InvaderShockWave(this, { x: sx, y: sy } as g.CommonOffset, existsBackground, undefined, 0.5);
                         if (i === count - 1) {
                             shockWave.onSpread.addOnce(_shockWave => {
                                 base.disableLauncher();
@@ -421,7 +432,7 @@ export class GameScene extends g.Scene {
 
             const createShockWave = (invader: Invader, combo?: Combo): ShockWave => {
                 explosionLayer.append(new Explosion(this, invader));
-                const shockWave = new InvaderShockWave(this, invader, combo);
+                const shockWave = new InvaderShockWave(this, invader, existsBackground, combo);
                 shockWaveLayer.append(shockWave);
 
                 invader.destroy();
@@ -464,7 +475,7 @@ export class GameScene extends g.Scene {
             };
 
             const explodeMissile = (missile: Missile, sight: Sight, invader?: Invader) => {
-                const shockWave = new PlayerShockWave(this, missile, missile.isStrike, player.power, new Combo());
+                const shockWave = new PlayerShockWave(this, missile, existsBackground, missile.isStrike, player.power, new Combo());
                 shockWave.onSpread.add(shockWave => spreadShockWave(shockWave));
                 shockWaveLayer.append(shockWave);
                 smokeLayer.append(new Smoke(this, missile));

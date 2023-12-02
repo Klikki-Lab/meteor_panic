@@ -4,7 +4,7 @@ import { ShockWave } from "./shockWave";
 
 export class InvaderShockWave extends ShockWave {
 
-    constructor(scene: g.Scene, point: Pos, combo?: Combo, speed?: number) {
-        super(scene, scene.asset.getImageById("shock_wave_invader"), point, false, 1, combo, speed);
+    constructor(scene: g.Scene, point: Pos, existsBackground: boolean, combo?: Combo, speed?: number) {
+        super(scene, scene.asset.getImageById("shock_wave_invader"), point, false, 1, existsBackground, combo, speed);
     }
 }
