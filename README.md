@@ -1,5 +1,8 @@
 # メテオパニック
-  ニコニコ生放送内で遊べるミサイルコマンドライクのニコ生ゲームです。Akashic Engine を使用しています。
+  ニコニコ生放送内で遊べるミサイルコマンドライクのニコ生ゲームです。Akashic Engine を使用しています。  
+
+  こちらのページでも遊べます。
+  https://klikki-lab.com/ja/products/akashic-engine/meteor-panic
 
 ## 遊び方
   クリック（タッチ）した位置にミサイルを発射してインセキを破壊しよう。  

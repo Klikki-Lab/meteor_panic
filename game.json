@@ -473,6 +473,11 @@
 			"type": "script",
 			"path": "script/title_scene/countdownTimer.js",
 			"global": true
+		},
+		"button": {
+			"type": "script",
+			"path": "script/common/button.js",
+			"global": true
 		}
 	},
 	"moduleMainScripts": {},

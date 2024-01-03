@@ -27,6 +27,8 @@ import { FireSmoke } from "./player/fireSmoke";
 import { Collider } from "./common/collider";
 import { DestroyedUFO } from "./invader/destroyedUfo";
 import { Blinking } from "./blinking";
+import { Button } from "../common/button";
+import { TitleScene } from "../title_scene/titleScene";
 
 export class GameScene extends g.Scene {
 
@@ -295,14 +297,39 @@ export class GameScene extends g.Scene {
                         if (entity instanceof NotificationLabel)
                             entity.hide();
                     });
-                    this.append(new FinishLabel(this, bitmapFont, "FINISH!"));
+                    const finishLabel = new FinishLabel(this, bitmapFont, "FINISH!");
+                    this.append(finishLabel);
                     this.asset.getAudioById("se_finish").play();
                     this.setTimeout(() => {
                         player.rebuild();
                         player.reloadAll();
                         canFire = true;
+
+                        //this.append(createRetryButton(finishLabel));
                     }, 1000);
                 }, 1000);
+            };
+
+            const createRetryButton = (label: g.Label): Button => {
+                const button = new Button(this, bitmapFont, "RETRY");
+                button.x = g.game.width / 2;
+                button.y = label.y + label.height * 4;
+                button.onClicked.addOnce(() => {
+                    g.game.vars.gameState.score = 0;
+
+                    const titleTimeLimit = 7;
+                    const gameTimeLimit = 99;
+                    const titleScene = new TitleScene(titleTimeLimit);
+                    titleScene.onFinish.add(props => {
+                        if (props.muteBGM) g.game.audio.music.volume = 0;
+                        if (props.muteSE) g.game.audio.sound.volume = 0;
+
+                        const gameScene = new GameScene(random, gameTimeLimit, props.background, isDebug);
+                        g.game.replaceScene(gameScene);
+                    });
+                    g.game.pushScene(titleScene);
+                });
+                return button;
             };
 
             const meteorPeriod = g.game.fps * 5;

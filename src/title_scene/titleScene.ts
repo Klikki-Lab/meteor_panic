@@ -2,6 +2,7 @@ import { Star } from "../common/star";
 import { FontSize } from "../common/fontSize";
 import { SwitchButton, SwitchLabel } from "./switchButton";
 import { CountdownTimer as CountdownTimer } from "./countdownTimer";
+import { Button } from "../common/button";
 
 export interface TitleProps {
     readonly muteBGM: boolean;
@@ -118,6 +119,19 @@ export class TitleScene extends g.Scene {
             });
             this.append(bgSwitch);
 
+            // const button = new Button(this, bitmapFont, "START", FontSize.TINY);
+            // button.x = g.game.width / 2;
+            // button.y = musicSwitch.y - musicSwitch.height * 2;
+            // button.onClicked.add(() => {
+            //     this.onUpdate.remove(updateHandler);
+            //     this.onFinish.fire({
+            //         muteBGM: !musicSwitch.on,
+            //         muteSE: !seSwitch.on,
+            //         background: bgSwitch.on
+            //     });
+            // });
+            // this.append(button);
+
             const timer = new CountdownTimer(this, bitmapFont, timeLimit);
             timer.y = musicSwitch.y - musicSwitch.height * 2;
             timer.onFinish.addOnce(() => {
@@ -129,6 +143,7 @@ export class TitleScene extends g.Scene {
                 });
             });
             this.append(timer);
+            timer.start();
 
             const updateHandler = () => {
                 stars.children.forEach(entity => {
@@ -142,7 +157,6 @@ export class TitleScene extends g.Scene {
                 });
             };
             this.onUpdate.add(updateHandler);
-            timer.start();
         });
     }
 }
